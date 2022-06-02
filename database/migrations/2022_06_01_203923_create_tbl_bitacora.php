@@ -19,7 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('COD_TIPO_BITACORA');
             $table->string('NOM_MODULO');
             $table->string('NOM_REPORTE');
-            $table->string('INF');
+            $table->string('INFO');
             $table->datetime('FEC_CREACION');
             $table->foreign('COD_USUARIO')->references('id')->on('users');
             $table->foreign('COD_TIPO_BITACORA')->references('COD_TIPO_BITACORA')->on('tbl_tipo_bitacora');
