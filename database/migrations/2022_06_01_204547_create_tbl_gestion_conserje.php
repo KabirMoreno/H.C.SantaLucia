@@ -22,6 +22,7 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes(); ////ESTE LO AGREGUE PARA QUE SE MIRE LA FECHA DE ELIMINACION
         });
+        
     }
 
     /**

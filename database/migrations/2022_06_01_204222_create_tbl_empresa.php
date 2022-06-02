@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tbl_empresa', function (Blueprint $table) {
-            $table->bigIncrements('COD_EMPRESA');
-            $table->string('NOM_EMPRESA');
-            $table->integer('TEL_EMPRESA');
-            $table->string('DIR_EMPRESA');
-            $table->string('CONTACTO_EMPRESA');
+            $table->bigIncrements('COD_EMP');
+            $table->string('NOM_EMP');
+            $table->integer('TEL_EMP');
+            $table->string('DIR_EMP');
+            $table->string('CONT_EMP');
             $table->timestamps();
             $table->softDeletes(); ////ESTE LO AGREGUE PARA QUE SE MIRE LA FECHA DE ELIMINACION
         });

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('tbl_gestion_cliente', function (Blueprint $table) {
             $table->bigIncrements('COD_GESTION');
-            $table->unsignedBigInteger('COD_CLIENTE');
+            $table->unsignedBigInteger('COD_CLI');
             $table->date('FECHA_GESTION');
             $table->date('FECHA_EXPIRADO');
             $table->date('FECHA_ULTIM_PAGO');
@@ -25,7 +25,7 @@ return new class extends Migration
             $table->unsignedBigInteger('COD_CREDITO');
             $table->string('COLABORADOR 1', 45);
             $table->string('COLABORADO2', 45);
-            $table->foreign('COD_CLIENTE')->references('COD_CLIENTE')->on('tbl_cliente');
+            $table->foreign('COD_CLI')->references('COD_CLI')->on('tbl_cliente');
             $table->foreign('COD_CREDITO')->references('COD_CREDITO')->on('tbl_creditos');
             $table->timestamps();
             $table->softDeletes(); ////ESTE LO AGREGUE PARA QUE SE MIRE LA FECHA DE ELIMINACION
