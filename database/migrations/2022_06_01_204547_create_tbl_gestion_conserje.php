@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tbl_gestion_conserje', function (Blueprint $table) {
-            $table->bigIncrements('COD_CONSERJE');
-            $table->unsignedBigInteger('COD_GESTION');
-            $table->string('OBSERVACION');
-            $table->string('IMAGEN');
-            $table->foreign('COD_GESTION')->references('COD_GESTION')->on('tbl_gestion_cliente');
+            $table->bigIncrements('Cod_Conserje')->comment("Código de Conserje");
+            $table->unsignedBigInteger('Cod_Gestion')->comment("Código de Gestión");
+            $table->string('Obs')->comment("Observación");
+            $table->string('Img')->comment("Imagen");
+            $table->foreign('Cod_Gestion')->references('Cod_Gestion')->on('tbl_gestion_cliente')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes(); ////ESTE LO AGREGUE PARA QUE SE MIRE LA FECHA DE ELIMINACION
         });

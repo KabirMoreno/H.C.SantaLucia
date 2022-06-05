@@ -1,0 +1,176 @@
+-- Procedimientos almacenados de Modulo Gestión
+
+-- PARA SELECCIONAR GESTIÓN CLIENTE
+DROP PROCEDURE IF EXISTS Select_Cliente;
+DELIMITER //
+CREATE PROCEDURE Select_Cliente(IN _Cod_Gestion bigint (20), IN _Cod_Cliente bigint (20), IN _Fec_Gestion date, IN _Fec_Expirado date,
+							    IN _Fec_Ultimo_Pago date, IN _Num_Cuotas int (11), IN _Cuo_Pendiente_Cl varchar (255),
+                                IN _Cuo_Pendientes_Lps int (11), IN _Cod_Credito bigint (20), IN _Col_Uno varchar (45),
+							    IN _Col_Dos varchar (45))
+BEGIN
+    SELECT * 
+    FROM tbl_gestion_cliente
+    WHERE Cod_Cliente = _Cod_Cliente;
+END //
+-- -------------------------------------------------------------------------------------------------------------------------------------
+-- PARA SELECCIONAR GESTIÓN LLAMADA
+DROP PROCEDURE IF EXISTS Select_Llamada;
+DELIMITER //
+CREATE PROCEDURE Select_Llamada(IN _Cod_Llamada bigint(20), IN _Cod_Gestion bigint(20), IN _Fec_Llamada date,
+                              IN _Fec_Proxima date, IN _Col varchar(45), IN _Comentario varchar(255))
+BEGIN
+    SELECT * 
+    FROM tbl_gestion_llamada
+    WHERE Cod_Llamada = _Cod_Llamada;
+END //
+-- -----------------------------------------------------------------------------------------------------------------------------------
+-- PARA SELECCIONAR GESTIÓN CONSERJE
+DROP PROCEDURE IF EXISTS Select_Conserje;
+DELIMITER //
+CREATE PROCEDURE Select_Conserje(_Cod_Conserje bigint(20), IN _Cod_Gestion bigint(20), IN _Obs varchar(255), IN _Img varchar(255))
+BEGIN
+    SELECT * 
+    FROM tbl_gestion_conserje
+    WHERE Cod_Conserje = _Cod_Conserje;
+END //
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- PARA SELECCIONAR COBROS
+DROP PROCEDURE IF EXISTS Select_Cobros;
+DELIMITER //
+CREATE PROCEDURE Select_Cobros(IN _Cod_Cobro bigint(20), IN _Cod_Gestion bigint(20), IN _Fec_Expiracion date, 
+                              IN _Interes double(10,2), IN _Subtotal double(10,2), IN _Total double(10,2), IN _Pagado double(10,2))
+BEGIN
+    SELECT * 
+    FROM tbl_cobros
+    WHERE Cod_Cobro = _Cod_Cobro;
+END //
+-- -------------------------------------------------------------
+-- PARA INSERTAR GESTIÓN CLIENTE
+DROP PROCEDURE IF EXISTS Ins_Cliente;
+DELIMITER //
+CREATE PROCEDURE Ins_Cliente (IN _Cod_Gestion bigint (20), IN _Cod_Cliente bigint (20), IN _Fec_Gestion date, IN _Fec_Expirado date,
+							  IN _Fec_Ultimo_Pago date, IN _Num_Cuotas int (11), IN _Cuo_Pendiente_Cl varchar (255),
+                              IN _Cuo_Pendientes_Lps int (11), IN _Cod_Credito bigint (20), IN _Col_Uno varchar (45),
+							  IN _Col_Dos varchar (45))
+BEGIN
+	INSERT INTO tbl_gestion_cliente (Cod_Gestion, Cod_Cliente, Fec_Gestion, Fec_Expirado, Fec_Ultimo_Pago, Num_Cuotas,
+                                    Cuo_Pendiente_Cl, Cuo_Pendientes_Lps, Cod_Credito, Col_Uno, Col_Dos)
+                                    
+          VALUES  (_Cod_Gestion, _Cod_Cliente, _Fec_Gestion, _Fec_Expirado, _Fec_Ultimo_Pago, _Num_Cuotas,
+                   _Cuo_Pendiente_Cl, _Cuo_Pendientes_Lps, _Cod_Credito, _Col_Uno, _Col_Dos);
+END //
+
+-- PARA INSERTAR GESTIÓN CONSERJE
+DROP PROCEDURE IF EXISTS Ins_Conserje;
+DELIMITER //
+CREATE PROCEDURE Ins_Conserje (IN _Cod_Conserje bigint(20), IN _Cod_Gestion bigint(20), IN _Obs varchar(255), IN _Img varchar(255))
+BEGIN
+	INSERT INTO tbl_gestion_conserje (Cod_Conserje, Cod_Gestion, Obs, Img)
+                                    
+          VALUES  ( _Cod_Conserje, _Cod_Gestion, _Obs, _Img);
+END // 
+
+-- PARA INSERTAR GESTIÓN LLAMADA
+DROP PROCEDURE IF EXISTS Ins_Llamada;
+DELIMITER //
+CREATE PROCEDURE Ins_Llamada (IN _Cod_Llamada bigint(20), IN _Cod_Gestion bigint(20), IN _Fec_Llamada date,
+                              IN _Fec_Proxima date, IN _Col varchar(45), IN _Comentario varchar(255))
+BEGIN
+	INSERT INTO tbl_gestion_llamada (Cod_Llamada, Cod_Gestion, Fec_Llamada, Fec_Proxima, Col, Comentario)
+                                    
+          VALUES  (_Cod_Llamada, _Cod_Gestion, _Fec_Llamada, _Fec_Proxima, _Col, _Comentario);
+END //
+
+-- PARA INSERTAR COBROS
+DROP PROCEDURE IF EXISTS Ins_Cobros;
+DELIMITER //
+CREATE PROCEDURE Ins_Cobros (IN _Cod_Cobro bigint(20), IN _Cod_Gestion bigint(20), IN _Fec_Expiracion date, 
+                              IN _Interes double(10,2), IN _Subtotal double(10,2), IN _Total double(10,2), IN _Pagado double(10,2))
+BEGIN
+	INSERT INTO tbl_cobros (Cod_Cobro, Cod_Gestion, Fec_Expiracion, Interes, Subtotal, Total, Pagado)
+                                    
+          VALUES  (_Cod_Cobro, _Cod_Gestion, _Fec_Expiracion, _Interes, _Subtotal, _Total, _Pagado);
+END //
+-- ------------------------------------------------------------------------------------------------------------------
+-- PARA ACTUALIZAR GESTIÓN CLIENTE
+DROP PROCEDURE IF EXISTS Act_Cliente; 
+DELIMITER //
+CREATE PROCEDURE Act_Cliente (IN _Cod_Gestion bigint (20), IN _Cod_Cliente bigint (20), IN _Fec_Gestion date, IN _Fec_Expirado date,
+							  IN _Fec_Ultimo_Pago date, IN _Num_Cuotas int (11), IN _Cuo_Pendiente_Cl varchar (255),
+                              IN _Cuo_Pendientes_Lps int (11), IN _Cod_Credito bigint (20), IN _Col_Uno varchar (45),
+							  IN _Col_Dos varchar (45))
+BEGIN
+	UPDATE tbl_gestion_cliente
+    set Cod_Gestion = _Cod_Gestion, Fec_Gestion = _Fec_Gestion, Fec_Expirado = _Fec_Expirado, 
+        Fec_Ultimo_Pago = _Fec_Ultimo_Pago, Num_Cuotas = _Num_Cuotas, Cuo_Pendiente_Cl = _Cuo_Pendiente_Cl, 
+        Cuo_Pendientes_Lps = Cuo_Pendientes_Lps, Cod_Credito = _Cod_Credito, Col_Uno = _Col_Uno, Col_Dos = _Col_Dos
+         WHERE Cod_Cliente = _Cod_Cliente;
+END //
+-- --------------------------------------------------------------------------------------------------------------------------------
+-- PARA ACTUALIZAR GESTIÓN LLAMADA
+DROP PROCEDURE IF EXISTS Act_Llamada; 
+DELIMITER //
+CREATE PROCEDURE Act_Llamada (IN _Cod_Llamada bigint(20), IN _Cod_Gestion bigint(20), IN _Fec_Llamada date,
+                              IN _Fec_Proxima date, IN _Col varchar(45), IN _Comentario varchar(255))
+BEGIN
+	UPDATE tbl_gestion_llamada
+    set Cod_Gestion = _Cod_Gestion, Fec_Llamada = _Fec_Llamada, Fec_Proxima = _Fec_Proxima, 
+          Col = _Col, Comentario = _Comentario
+         WHERE Cod_Llamada = _Cod_Llamada;
+END //
+-- -------------------------------------------------------------------------------------------------------------------------------
+-- PARA ACTUALIZAR GESTIÓN CONSERJE
+DROP PROCEDURE IF EXISTS Act_Conserje; 
+DELIMITER //
+CREATE PROCEDURE Act_Conserje (IN _Cod_Conserje bigint(20), IN _Cod_Gestion bigint(20), IN _Obs varchar(255), IN _Img varchar(255))
+BEGIN
+	UPDATE tbl_gestion_conserje
+    set  Cod_Gestion = _Cod_Gestion, Obs = _Obs, Img = _Img
+         WHERE Cod_Conserje = _Cod_Conserje;
+END //
+-- --------------------------------------------------------------------------------------------------------------------------------
+-- PARA ACTUALIZAR  COBROS
+DROP PROCEDURE IF EXISTS Act_Cobros; 
+DELIMITER //
+CREATE PROCEDURE Act_Cobros (IN _Cod_Cobro bigint(20), IN _Cod_Gestion bigint(20), IN _Fec_Expiracion date, 
+                              IN _Interes double(10,2), IN _Subtotal double(10,2), IN _Total double(10,2), IN _Pagado double(10,2))
+BEGIN
+	UPDATE tbl_cobros
+    set  Cod_Gestion = _Cod_Gestion, Fec_Expiracion = _Fec_Expiracion, Interes = _Interes, Subtotal = _Subtotal, 
+         Total = _Total, Pagado = _Pagado
+         WHERE Cod_Cobro = _Cod_Cobro;
+END //
+-- -----------------------------------------------------------------------------------------------------------------------------------
+-- PARA ELIMITAR GESTIÓN CLIENTE
+DROP PROCEDURE IF EXISTS Delete_Cliente;
+DELIMITER //
+CREATE PROCEDURE Delete_Cliente (IN _Cod_Cliente bigint(20))
+BEGIN
+      DELETE FROM tbl_gestion_cliente WHERE Cod_Cliente  = _Cod_Ciente;
+END //
+-- -------------------------------------------------------------------------------------------------------------------------------
+-- PARA ELIMITAR GESTIÓN LLAMADA
+DROP PROCEDURE IF EXISTS Delete_Llamada;
+DELIMITER //
+CREATE PROCEDURE Delete_Llamada (IN _Cod_Llamada bigint(20))
+BEGIN
+      DELETE FROM tbl_gestion_llamada WHERE Cod_Llamada  = _Cod_Llamada;
+END //
+-- -------------------------------------------------------------------------------------------------------------------------------
+-- PARA ELIMITAR GESTIÓN CONSERJE
+DROP PROCEDURE IF EXISTS Delete_Conserje;
+DELIMITER //
+CREATE PROCEDURE Delete_Conserje (IN _Cod_Conserje bigint(20))
+BEGIN
+      DELETE FROM tbl_gestion_conserje WHERE Cod_Conserje  = _Cod_Conserje;
+END //
+-- ----------------------------------------------------------------------------------------------------------------------------
+-- PARA ELIMITAR GESTIÓN COBROS
+DROP PROCEDURE IF EXISTS Delete_Cobros;
+DELIMITER //
+CREATE PROCEDURE Delete_Cobros (IN _Cod_Cobro bigint(20))
+BEGIN
+      DELETE FROM tbl_cobros WHERE Cod_Cobro  = _Cod_Cobros;
+END //
+
+ 
