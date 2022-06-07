@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('tbl_tipo_pagos', function (Blueprint $table) {
             $table->bigIncrements('Cod_tipo_pago')->comment("Llave Primaria");
             $table->enum("Tip_credito",["T","CH","E"])->comment("T=Transaccion, CH=Cheque, E=Efectivo");
-            $table->string('Descripcion')->comment("Descripcion del credito");
+            $table->string('Des')->comment("Descripcion del credito");
             $table->timestamps();
             $table->softDeletes(); ////ESTE LO AGREGUE PARA QUE SE MIRE LA FECHA DE ELIMINACION
         });

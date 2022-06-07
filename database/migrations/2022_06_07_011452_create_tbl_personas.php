@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('Dir')->comment("Direccion Persona");
             $table->integer('Tel')->comment("Telefono");
             $table->integer('Cel')->comment("Celular");
+            $table->enum("Tip_resgitro",["C","E"])->comment("C=Clientes, E=Empleados");
             $table->datetime('Fec_registro')->comment("Fecha de registro");
             $table->timestamps();
             $table->softDeletes(); ////ESTE LO AGREGUE PARA QUE SE MIRE LA FECHA DE ELIMINACION

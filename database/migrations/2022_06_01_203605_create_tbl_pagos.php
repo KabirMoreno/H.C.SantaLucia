@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('tbl_pagos', function (Blueprint $table) {
             $table->bigIncrements('Cod_pago')->comment("Llave Pirmaria");
             $table->unsignedBigInteger('Cod_tipo_pago')->comment("Llave Foranea");
-            $table->float('Interes', 10,2)->comment("Interes");
-            $table->float('Subtotal', 10,2)->comment("Subtotal");
-            $table->float('Total', 10,2)->comment("Total");
+            $table->float('Int', 10,2)->comment("Interes");
+            $table->float('Sub', 10,2)->comment("Subtotal");
+            $table->float('Tot', 10,2)->comment("Total");
             $table->foreign('Cod_tipo_pago')->references('Cod_tipo_pago')->on('tbl_tipo_pagos') ->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes(); ////ESTE LO AGREGUE PARA QUE SE MIRE LA FECHA DE ELIMINACION
