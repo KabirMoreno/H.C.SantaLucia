@@ -15,11 +15,11 @@ return new class extends Migration
     {
         //
         $procedimiento = "CREATE PROCEDURE SP_INS_COBROS (IN _Cod_Gestion bigint(20), 
-                              IN _Interes double(10,2), IN _Subtotal double(10,2), IN _Total double(10,2), IN _Pagado double(10,2))
+                              IN _Inte double(10,2), IN _Sub double(10,2), IN _Tot double(10,2), IN _Pag double(10,2))
 BEGIN
-	INSERT INTO tbl_cobros (Cod_Gestion, Fec_Expiracion, Interes, Subtotal, Total, Pagado)
+	INSERT INTO tbl_cobros (Cod_Gestion, Fec_Expiracion, Inte, Sub, Tot, Pagado)
                                     
-          VALUES  (_Cod_Gestion, now(), _Interes, _Subtotal, _Total, _Pagado);
+          VALUES  (_Cod_Gestion, now(), _Inte, _Sub, _Tot, _Pag);
 END";
 DB::unprepared($procedimiento);
     }

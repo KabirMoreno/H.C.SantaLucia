@@ -17,13 +17,13 @@ return new class extends Migration
         $procedimiento ="CREATE PROCEDURE SP_UPD_CREDITOS (IN _Cod_credito Bigint(20),
         IN _Tip_credito Enum('C', 'M', 'L'),
            IN _Dia_credito Int(11),
-           IN _Descripcion Varchar(255))
+           IN _Descr Varchar(255))
 BEGIN
 UPDATE tbl_creditos 
 Set 
 Tip_credito = _Tip_credito,
 Dia_credito = _Dia_credito,
-Descripcion = _Descripcion
+Descripcion = _Descr
 WHERE Cod_credito = _Cod_credito;
 END";
 DB::unprepared($procedimiento);

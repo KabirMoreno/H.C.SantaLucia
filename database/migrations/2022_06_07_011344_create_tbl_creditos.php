@@ -17,7 +17,7 @@ return new class extends Migration
             $table->bigIncrements('Cod_credito')->comment("Llave Pirmaria");
             $table->enum("Tip_credito",["C","M","L"])->comment("C=Corto, M=Medio, L=Largo plazo");
             $table->integer('Dia_credito')->comment("Dias del credito");
-            $table->string('Desc')->comment("Descripcion del credito");
+            $table->string('Descr')->comment("Descripcion del credito");
             $table->timestamps();
             $table->softDeletes(); ////ESTE LO AGREGUE PARA QUE SE MIRE LA FECHA DE ELIMINACION
         });

@@ -15,14 +15,14 @@ return new class extends Migration
     {
         //
         $procedimiento = "CREATE PROCEDURE SP_INS_TIPO_PAGO (IN _Tip_credito Enum('T','CH','E')
-        ,IN _Descripcion Varchar(255))
+        ,IN _Descr Varchar(255))
         
             
 BEGIN
-INSERT INTO tbl_tipo_pagos (Tip_credito, Descripcion)
+INSERT INTO tbl_tipo_pagos (Tip_credito, Descr)
                        
 VALUES  ( _Tip_credito, 
-       _Descripcion );
+       _Descr );
        
        
 END";

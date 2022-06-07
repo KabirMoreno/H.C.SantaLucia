@@ -16,16 +16,16 @@ return new class extends Migration
         //
         $procedimiento = "CREATE PROCEDURE SP_INS_CREDITO (IN _Tip_credito Enum('C','M','L')
         ,IN _Dia_credito Int(11)
-        ,IN _Descripcion varchar(255)) 
+        ,IN _Des varchar(255)) 
             
 BEGIN
 INSERT INTO tbl_creditos (Tip_credito, 
                           Dia_credito, 
-                           Descripcion)
+                           Descr)
                        
 VALUES  ( _Tip_credito, 
        _Dia_credito, 
-       _Descripcion);
+       _Descr);
        
 END";
 DB::unprepared($procedimiento);

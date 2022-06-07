@@ -16,16 +16,16 @@ return new class extends Migration
         //
         $procedimiento = "CREATE PROCEDURE SP_UPD_PAGOS (IN _Cod_pago Bigint(20),
         IN _Cod_tipo_pagos Bigint(20),
-           IN _Interes Double(10,2),
-           IN _Subtotal Double(10,2),
-        IN _Total Double(10,2))
+           IN _Inte Double(10,2),
+           IN _Sub Double(10,2),
+        IN _Tot Double(10,2))
 BEGIN
 UPDATE tbl_pagos 
 Set 
 Tip_credito = _Cod_tipo_pagos,
-Interes = _Interes,
-Subtotal = _Subtotal,
-Total = _Total
+Interes = _Inte,
+Subtotal = _Sub,
+Total = _Tot
 WHERE Cod_pago = _Cod_pago;
 END ";
 DB::unprepared($procedimiento);

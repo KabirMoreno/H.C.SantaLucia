@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('tbl_tipo_reportes', function (Blueprint $table) {
             $table->bigIncrements('Cod_tipo_reporte')->comment("Llave Primaria");
-            $table->string('Desc')->comment("Descripcion");
+            $table->string('Descr')->comment("Descripcion");
             $table->string('Est')->comment("Estado");
             $table->timestamps();
         });
