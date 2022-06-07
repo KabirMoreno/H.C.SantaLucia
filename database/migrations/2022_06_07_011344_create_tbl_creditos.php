@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_cliente', function (Blueprint $table) {
-            $table->bigIncrements('COD_CLI');
-            $table->unsignedBigInteger('COD_EMP');
-            $table->unsignedBigInteger('COD_PER');
-            $table->string('DNI');
-            $table->foreign('COD_EMP')->references('COD_EMP')->on('tbl_empresa');
-            $table->foreign('COD_PER')->references('COD_PER')->on('tbl_personas');
+        Schema::create('tbl_creditos', function (Blueprint $table) {
+            $table->bigIncrements('Cod_credito')->comment("Llave Pirmaria");
+            $table->enum("Tip_credito",["C","M","L"])->comment("C=Corto, M=Medio, L=Largo plazo");
+            $table->integer('Dia_credito')->comment("Dias del credito");
+            $table->string('Desc')->comment("Descripcion del credito");
             $table->timestamps();
             $table->softDeletes(); ////ESTE LO AGREGUE PARA QUE SE MIRE LA FECHA DE ELIMINACION
         });
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_cliente');
+        Schema::dropIfExists('tbl_creditos');
     }
 };

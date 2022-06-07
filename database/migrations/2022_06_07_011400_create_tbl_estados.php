@@ -13,14 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_empresa', function (Blueprint $table) {
-            $table->bigIncrements('COD_EMP');
-            $table->string('NOM_EMP');
-            $table->integer('TEL_EMP');
-            $table->string('DIR_EMP');
-            $table->string('CONT_EMP');
+        Schema::create('tbl_estados', function (Blueprint $table) {
+            $table->bigIncrements('Cod_estado')->comment("Llave Pirmaria");
+            $table->enum("Tip_estado",["A","M","X"])->comment("A=Activo, M=Mora, X=Expirado");
             $table->timestamps();
-            $table->softDeletes(); ////ESTE LO AGREGUE PARA QUE SE MIRE LA FECHA DE ELIMINACION
         });
     }
 
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_empresa');
+        Schema::dropIfExists('tbl_estados');
     }
 };

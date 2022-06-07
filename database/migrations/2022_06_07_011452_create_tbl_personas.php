@@ -14,14 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tbl_personas', function (Blueprint $table) {
-            $table->bigIncrements('COD_PER');
-            $table->string('DNI');
-            $table->string('NOM');
-            $table->string('APE');
-            $table->string('DIR');
-            $table->integer('TEL');
-            $table->integer('CEL');
-            $table->datetime('FEC_REG');
+            $table->bigIncrements('Cod_persona');
+            $table->string('DNI')->comment("Identidad");
+            $table->string('Nom')->comment("Nombre");
+            $table->string('Ape')->comment("Apellido");
+            $table->string('Dir')->comment("Direccion Persona");
+            $table->integer('Tel')->comment("Telefono");
+            $table->integer('Cel')->comment("Celular");
+            $table->datetime('Fec_registro')->comment("Fecha de registro");
             $table->timestamps();
             $table->softDeletes(); ////ESTE LO AGREGUE PARA QUE SE MIRE LA FECHA DE ELIMINACION
         });

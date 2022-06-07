@@ -13,15 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_tipo_bitacora', function (Blueprint $table) {
-            $table->bigIncrements('COD_TIPO_BITACORA');
-            $table->string('DESCRIPCION');
-            $table->string('ESTADO');
+        Schema::create('tbl_tipo_bitacoras', function (Blueprint $table) {
+            $table->bigIncrements('Cod_tipo_bitacora')->comment("Llave Primaria");
+            $table->string('Desc')->comment("Descripcion");
+            $table->string('Est')->comment("Estado");
             $table->timestamps();
-        
-
-            
-
         });
     }
 
@@ -32,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_tipo_bitacora');
+        Schema::dropIfExists('tbl_tipo_bitacoras');
     }
 };
