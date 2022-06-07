@@ -17,7 +17,7 @@ return new class extends Migration
             $table->bigIncrements('Cod_Cobro')->comment("Llave Primaria");
             $table->unsignedBigInteger('Cod_Gestion')->comment("Llave Foranea");
             $table->date('Fec_Expiracion')->comment("Fecha de Expiración");
-            $table->float('Int', 10,2)->comment("Interes por cuentas por cobrar");
+            $table->float('Inte', 10,2)->comment("Interes por cuentas por cobrar");
             $table->float('Sub', 10,2)->comment("Subtotal de la cuenta");
             $table->float('Tot', 10,2)->comment("Total de cuenta por pagar");
             $table->float('Pag', 10,2)->comment("Pagado");
