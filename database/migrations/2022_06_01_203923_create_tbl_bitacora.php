@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('NOMBRE_REPORTE');
             $table->string('INFO');
             $table->datetime('FECHA_CREACION');
-            $table->foreign('COD_USUARIO')->references('id')->on('users');
+            $table->foreign('COD_USUARIO')->references('Cod_Usuario')->on('tbl_usuarios');
             $table->foreign('COD_TIPO_BITACORA')->references('COD_TIPO_BITACORA')->on('tbl_tipo_bitacora');
             $table->timestamps();
         });
