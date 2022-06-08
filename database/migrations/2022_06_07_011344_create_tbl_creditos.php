@@ -13,15 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_cobros', function (Blueprint $table) {
-            $table->bigIncrements('COD_COBRO');
-            $table->unsignedBigInteger('COD_GESTION');
-            $table->date('FECHA_EXPIRACION');
-            $table->float('INTERES', 10,2);
-            $table->float('SUBTOTAL', 10,2);
-            $table->float('TOTAL', 10,2);
-            $table->float('PAGADO', 10,2);
-            $table->foreign('COD_GESTION')->references('COD_GESTION')->on('tbl_gestion_cliente');
+        Schema::create('tbl_creditos', function (Blueprint $table) {
+            $table->bigIncrements('Cod_credito')->comment("Llave Pirmaria");
+            $table->enum("Tip_credito",["C","M","L"])->comment("C=Corto, M=Medio, L=Largo plazo");
+            $table->integer('Dia_credito')->comment("Dias del credito");
+            $table->string('Descr')->comment("Descripcion del credito");
             $table->timestamps();
             $table->softDeletes(); ////ESTE LO AGREGUE PARA QUE SE MIRE LA FECHA DE ELIMINACION
         });
@@ -34,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_cobros');
+        Schema::dropIfExists('tbl_creditos');
     }
 };

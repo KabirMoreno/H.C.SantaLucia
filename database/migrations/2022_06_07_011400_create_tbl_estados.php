@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_creditos', function (Blueprint $table) {
-            $table->bigIncrements('COD_CREDITO');
-            $table->enum("TIPO_CREDITO",["C","M","L"]);
-            $table->integer('DIAS_CREDITO');
-            $table->string('DESCRIPCION');
+        Schema::create('tbl_estados', function (Blueprint $table) {
+            $table->bigIncrements('Cod_estado')->comment("Llave Pirmaria");
+            $table->enum("Tip_estado",["A","M","X"])->comment("A=Activo, M=Mora, X=Expirado");
             $table->timestamps();
-            $table->softDeletes(); ////ESTE LO AGREGUE PARA QUE SE MIRE LA FECHA DE ELIMINACION
         });
     }
 
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_creditos');
+        Schema::dropIfExists('tbl_estados');
     }
 };

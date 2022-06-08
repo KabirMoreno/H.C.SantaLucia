@@ -14,17 +14,17 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tbl_pagos', function (Blueprint $table) {
-            $table->bigIncrements('COD_PAGOS');
-            $table->unsignedBigInteger('COD_TIPO_PAGO');
-            $table->float('INTERES', 10,2);
-            $table->float('SUBTOTAL', 10,2);
-            $table->float('TOTAL', 10,2);
-            $table->foreign('COD_TIPO_PAGO')->references('COD_TIPO_PAGO')->on('tbl_tipo_pagos');
+            $table->bigIncrements('Cod_pago')->comment("Llave Pirmaria");
+            $table->unsignedBigInteger('Cod_tipo_pago')->comment("Llave Foranea");
+            $table->float('Inte', 10,2)->comment("Interes");
+            $table->float('Sub', 10,2)->comment("Subtotal");
+            $table->float('Tot', 10,2)->comment("Total");
+            $table->foreign('Cod_tipo_pago')->references('Cod_tipo_pago')->on('tbl_tipo_pagos') ->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes(); ////ESTE LO AGREGUE PARA QUE SE MIRE LA FECHA DE ELIMINACION
         });
     }
-
+    
     /**
      * Reverse the migrations.
      *
