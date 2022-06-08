@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('Nom_reporte')->comment("Nombre del Reporte");
             $table->string('Info')->comment("Informacion");
             $table->datetime('Fec_creacion')->comment("Fecha de Creacion");
-            $table->foreign('Cod_usuario')->references('id')->on('users') ->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('Cod_usuario')->references('Cod_usuario')->on('tbl_usuarios') ->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('Cod_tipo_bitacora')->references('Cod_tipo_bitacora')->on('tbl_tipo_bitacoras') ->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
