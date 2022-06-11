@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         //
-        $procedimiento = "CREATE PROCEDURE SP_MOS_TIPO_PAGOS (IN _Cod_tipo_pago bigint(20))
+        $procedimiento = "CREATE PROCEDURE SP_MOS_TIPO_PAGOS ()
         BEGIN
         
           SELECT * FROM tbl_tipo_pagos;
@@ -22,6 +22,8 @@ return new class extends Migration
         END";
         DB::unprepared($procedimiento);
     }
+    ////PARA LLAMAR AL PROCESO ALAMACENADO...
+    ////CALL SP_MOS_TIPO_PAGOS ()
 
     /**
      * Reverse the migrations.

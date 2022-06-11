@@ -17,9 +17,8 @@ return new class extends Migration
             $table->bigIncrements('Cod_cartera')->comment("Llave Primaria");
             $table->float('Val_acumulado', 10,2)->comment("Valor Acumulado");
             $table->float('Sal', 10,2)->comment("Saldo Cartera");
-            $table->unsignedBigInteger('Cod_estado')->comment("Llave Foranea");
             $table->string('Obs')->comment("Observaciones");
-            $table->foreign('Cod_estado')->references('Cod_estado')->on('tbl_estados') ->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->enum("Tip_estado",["A","M","X"])->comment("A=Activo, M=Mora, X=Expirado");
             $table->timestamps();
             $table->softDeletes();// //ESTE LO AGREGUE PARA QUE SE MIRE LA FECHA DE ELIMINACION
         });

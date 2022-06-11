@@ -17,7 +17,7 @@ return new class extends Migration
             $table->bigIncrements('Cod_cliente')->comment("Llave Primaria");
             $table->unsignedBigInteger('Cod_empresa')->comment("Llave Foranea");
             $table->unsignedBigInteger('Cod_persona')->comment("Llave Foranea");
-            $table->string('DNI')->comment("Numero de identidad");
+            $table->string('Usr_registro')->comment("Usuario que lo registro");
             $table->foreign('Cod_empresa')->references('Cod_empresa')->on('tbl_empresas')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('Cod_persona')->references('Cod_persona')->on('tbl_personas')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();

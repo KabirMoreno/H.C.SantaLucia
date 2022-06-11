@@ -16,10 +16,12 @@ return new class extends Migration
         //
         $procedimiento = "CREATE PROCEDURE SP_DEL_COBROS (IN _Cod_Cobro bigint(20))
         BEGIN
-              DELETE FROM tbl_cobros WHERE Cod_Cobro  = _Cod_Cobros;
+              DELETE FROM tbl_cobros WHERE Cod_Cobro  = _Cod_Cobro;
         END";
         DB::unprepared($procedimiento);
     }
+    ////PARA LLAMAR AL PROCESO ALMACENADO...
+    ////CALL SP_DEL_COBROS (1)
 
     /**
      * Reverse the migrations.

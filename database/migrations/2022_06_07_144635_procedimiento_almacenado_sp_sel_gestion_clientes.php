@@ -22,6 +22,8 @@ return new class extends Migration
             WHERE Cod_gestion = _Cod_gestion;
         END";
     }
+    ////PARA LLAMAR AL PROCESO ALMACENADO....
+   //// CALL SP_SEL_GESTION_CLIENTES (2)
 
     /**
      * Reverse the migrations.

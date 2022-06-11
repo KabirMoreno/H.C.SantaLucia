@@ -14,19 +14,22 @@ return new class extends Migration
     public function up()
     {
         //
-        $procedimiento = "CREATE PROCEDURE SP_SEL_TIP_PAGO (IN _Cod_tipo_pago bigint(20))
-
-        BEGIN
-        
-        SELECT *
-        FROM tbl_tipo_pagos
-        WHERE Cod_tipo_pago = _Cod_tipo_pago;
-        
-        END ";
-        DB::unprepared($procedimiento);
+        $procedimiento = "CREATE PROCEDURE  SP_INS_CLIENTES (IN _Cod_empresa Bigint(20)
+        ,IN _Cod_persona Bigint(20), IN _Usr_registro Varchar(255))
+BEGIN
+INSERT INTO tbl_clientes (Cod_empresa, Cod_persona, Usr_registro)
+                       
+VALUES  ( _Cod_empresa,
+	  _Cod_persona,
+	  _Usr_registro
+	  );
+       
+       
+END";
+DB::unprepared($procedimiento);
     }
     ////PARA LLAMAR AL PROCESO ALMACENADO....
-    ////CALL SP_SEL_TIP_PAGO (1)
+    ////CALL SP_INS_CLIENTES (1, 1, "MARTIN PESCADOR")
 
     /**
      * Reverse the migrations.
@@ -36,7 +39,8 @@ return new class extends Migration
     public function down()
     {
         //
-        $procedimiento ="DROP PROCEDURE IF EXISTS SP_SEL_TIP_PAGO";
+        $procedimiento = "DROP PROCEDURE IF EXISTS SP_INS_CLIENTES";
         DB::unprepared($procedimiento);
+
     }
 };

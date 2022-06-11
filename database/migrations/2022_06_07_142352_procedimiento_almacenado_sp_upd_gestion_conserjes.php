@@ -22,6 +22,8 @@ return new class extends Migration
         END";
          DB::unprepared($procedimiento);
     }
+    ////PARA LLAMAR AL PROCESO ALMACENADO...
+    ////CALL SP_UPD_GESTION_CONSERJES (1,1, "ACTUALIZACION", "OTRA IMAGEN")
 
     /**
      * Reverse the migrations.

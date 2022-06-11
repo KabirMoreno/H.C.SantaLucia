@@ -13,12 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_estados', function (Blueprint $table) {
-            $table->bigIncrements('Cod_estado')->comment("Llave Pirmaria");
-            $table->enum("Tip_estado",["A","M","X"])->comment("A=Activo, M=Mora, X=Expirado");
-            $table->timestamps();
-        });
+        //
+        $procedimiento = "CREATE PROCEDURE  SP_MOS_PERSONAS ()
+BEGIN
+        
+          SELECT * FROM tbl_personas;
+        
+        END";
+        DB::unprepared($procedimiento);
     }
+    ////PARA LLAMAR AL PROCESO ALMACENADO....
+    ////CALL SP_MOS_PERSONAS ()
 
     /**
      * Reverse the migrations.
@@ -27,6 +32,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_estados');
+        //
+        $procedimiento = "DROP PROCEDURE IF EXISTS SP_MOS_PERSONAS";
+        DB::unprepared($procedimiento);
     }
 };

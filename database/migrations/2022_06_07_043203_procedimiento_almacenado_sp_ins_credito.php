@@ -25,13 +25,15 @@ INSERT INTO tbl_creditos (Tip_credito,
                        
 VALUES  ( _Tip_credito, 
        _Dia_credito, 
-       _Descr);
+       _Des);
        
 END";
 DB::unprepared($procedimiento);
 
-////CALL SP_INS_CREDITO ('C',16,'prueba')
+
     }
+    ////PARA LLAMAR AL PROCESO ALMACENADO..
+    ////CALL SP_INS_CREDITO ('C',11,'PRUEBA')
 
     /**
      * Reverse the migrations.

@@ -25,6 +25,8 @@ return new class extends Migration
         END";
         DB::unprepared($procedimiento);
     }
+    ////PARA LLAMAR AL PROCESO ALMACENADO....
+    ////CALL SP_SEL_PAGO (1)
 
     /**
      * Reverse the migrations.

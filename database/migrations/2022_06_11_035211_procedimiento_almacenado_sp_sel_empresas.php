@@ -14,13 +14,18 @@ return new class extends Migration
     public function up()
     {
         //
-        $procedimiento = "CREATE PROCEDURE Delete_Cobros (IN _Cod_Cobro bigint(20))
+        $procedimiento = "CREATE PROCEDURE SP_SEL_EMPRESAS (IN _Cod_empresa bigint(20))
         BEGIN
-              DELETE FROM tbl_cobros WHERE Cod_Cobro  = _Cod_Cobro;
-        END";
-        DB::unprepared($procedimiento);
+                
+                SELECT *
+                FROM tbl_empresas
+                WHERE Cod_empresa = _Cod_empresa;
+                
+                END";
+                DB::unprepared($procedimiento);
     }
-    
+    ////PARA LLAMAR EL PROCEDIMIENTO ALMACENADO...
+    ////CALL SP_SEL_EMPRESAS (2)
 
     /**
      * Reverse the migrations.
@@ -30,7 +35,7 @@ return new class extends Migration
     public function down()
     {
         //
-        $procedimiento = "DROP PROCEDURE IF EXISTS Delete_Cobros";
+        $procedimiento = "DROP PROCEDURE IF EXISTS SP_SEL_EMPRESAS";
         DB::unprepared($procedimiento);
     }
 };

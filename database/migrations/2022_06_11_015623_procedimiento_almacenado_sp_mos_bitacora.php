@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_tipo_reportes', function (Blueprint $table) {
-            $table->bigIncrements('Cod_tipo_reporte')->comment("Llave Primaria");
-            $table->string('Descr')->comment("Descripcion");
-            $table->string('Est')->comment("Estado");
-            $table->timestamps();
-        });
+        //
+        $procedimiento = "CREATE PROCEDURE SP_MOS_BITACORA (IN _Cod_bitacora bigint(20))
+        BEGIN
+        
+          SELECT * FROM tbl_bitacoras;
+        
+        END";
+        DB::unprepared($procedimiento);
     }
 
     /**
@@ -28,6 +30,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_tipo_reportes');
+        //
+        $procedimiento = "DROP PROCEDURE IF EXISTS SP_MOS_BITACORA";
+        DB::unprepared($procedimiento);
     }
 };

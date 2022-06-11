@@ -13,17 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        //
-        $procedimiento = "CREATE PROCEDURE SP_MOS_PAGOS ()
-        BEGIN
-        
-          SELECT * FROM tbl_pagos;
-        
-        END";
-        DB::unprepared($procedimiento);
+        Schema::create('tbl_reportes_guardados', function (Blueprint $table) {
+            $table->bigIncrements('Cod_rep_guardado')->comment("Llave Pirmaria");
+            $table->timestamps();
+        });
     }
-    ////PARA LLAMAR AL PROCESO ALMACENADO....
-    ////CALL SP_MOS_PAGOS ()
 
     /**
      * Reverse the migrations.
@@ -32,8 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
-        $procedimiento ="DROP PROCEDURE IF EXISTS SP_MOS_PAGOS";
-        DB::unprepared($procedimiento);
+        Schema::dropIfExists('tbl_reportes_guardados');
     }
 };

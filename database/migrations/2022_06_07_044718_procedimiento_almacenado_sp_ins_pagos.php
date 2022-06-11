@@ -20,7 +20,7 @@ return new class extends Migration
 				 ,IN _Tot Double (10,2)) 
 		                 
 BEGIN
-	INSERT INTO tbl_pagos (Cod_tipo_pago, Interes, Subtotal, Total)
+	INSERT INTO tbl_pagos (Cod_tipo_pago, Inte, Sub, Tot)
                                     
           VALUES  ( _Cod_tipo_pago, 
 	                _Inte, 
@@ -30,6 +30,8 @@ BEGIN
 END";
 DB::unprepared($procedimiento);
     }
+    ////PARA LLAMAR AL PROCESO ALMACENADO....
+    ////CALL SP_INS_PAGO (1, 10, 10, 10)
 
     /**
      * Reverse the migrations.

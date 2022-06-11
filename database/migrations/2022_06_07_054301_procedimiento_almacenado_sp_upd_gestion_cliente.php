@@ -27,6 +27,8 @@ WHERE Cod_Gestion = _Cod_Gestion;
 END";
 DB::unprepared($procedimiento);
     }
+    ////PARA LLAMAR AL PROCESO ALMACENADO...
+    ////CALL SP_UPD_GESTION_CLIENTE (1, 1, "Num", "Cu", 9999, 1, "ELLA", "EL");
 
     /**
      * Reverse the migrations.

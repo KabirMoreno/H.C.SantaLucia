@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         //
-        $procedimiento = "CREATE PROCEDURE SP_SEL_CREDITO (IN _Cod_credito bigint(20))
+        $procedimiento = "CREATE PROCEDURE SP_SEL_CREDITOS (IN _Cod_credito bigint(20))
 
         BEGIN
         
@@ -25,6 +25,8 @@ return new class extends Migration
         END";
         DB::unprepared($procedimiento);
     }
+    ////PARA LLAMAR AL PROCESO ALMACENADO....
+    ////CALL SP_SEL_CREDITOS (1)
 
     /**
      * Reverse the migrations.
@@ -34,7 +36,7 @@ return new class extends Migration
     public function down()
     {
         //
-        $procedimiento ="DROP PROCEDURE IF EXISTS SP_MOS_PAGOS";
+        $procedimiento ="DROP PROCEDURE IF EXISTS SP_SEL_CREDITOS";
         DB::unprepared($procedimiento);
     }
 };

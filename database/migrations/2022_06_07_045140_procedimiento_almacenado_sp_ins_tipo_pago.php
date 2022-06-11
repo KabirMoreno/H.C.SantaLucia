@@ -22,12 +22,14 @@ BEGIN
 INSERT INTO tbl_tipo_pagos (Tip_credito, Descr)
                        
 VALUES  ( _Tip_credito, 
-       _Descr );
+          _Descr );
        
        
 END";
 DB::unprepared($procedimiento);
     }
+    ////PARA LLAMAR AL PROCESO ALMACENADO...
+    ////CALL SP_INS_TIPO_PAGO ('T', 'PRUEBA')
 
     /**
      * Reverse the migrations.

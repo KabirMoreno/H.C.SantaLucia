@@ -23,11 +23,13 @@ UPDATE tbl_creditos
 Set 
 Tip_credito = _Tip_credito,
 Dia_credito = _Dia_credito,
-Descripcion = _Descr
+Descr = _Descr
 WHERE Cod_credito = _Cod_credito;
 END";
 DB::unprepared($procedimiento);
     }
+    ////PARA LLAMAR AL PROCESO ALMACENADO....
+    ////CALL SP_UPD_CREDITOS (3,'M',80,'ACTUALIZADO')
 
     /**
      * Reverse the migrations.
