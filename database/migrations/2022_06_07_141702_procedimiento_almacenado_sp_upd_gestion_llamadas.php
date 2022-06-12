@@ -22,6 +22,7 @@ set Cod_Gestion = _Cod_Gestion, Fec_Llamada = now(), Fec_Proxima = now(),
 Col = _Col, Com = _Com
 WHERE Cod_Llamada = _Cod_Llamada;
 END";
+DB::unprepared($procedimiento);
 
     }
     ////FALTA HACER ESTE PROCESO //*HACERLO 

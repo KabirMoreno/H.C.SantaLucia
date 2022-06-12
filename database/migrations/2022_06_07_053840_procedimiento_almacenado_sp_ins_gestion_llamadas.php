@@ -14,12 +14,12 @@ return new class extends Migration
     public function up()
     {
         //
-        $procedimiento = "CREATE PROCEDURE SP_INS_GESTION_LLAMADAS (IN _Cod_Gestion bigint(20), IN _Fec_Llamada date,
-        IN _Fec_Proxima date, IN _Col varchar(45), IN _Com varchar(255))
+        $procedimiento = "CREATE PROCEDURE SP_INS_GESTION_LLAMADAS (IN _Cod_Gestion bigint(20), 
+         IN _Col varchar(45), IN _Com varchar(255))
         BEGIN
-            INSERT INTO tbl_gestion_conserje (Cod_Gestion, Fec_llamada, Fec_proxima, col, com)
+            INSERT INTO tbl_gestion_conserjes (Cod_Gestion, Fec_llamada, Fec_proxima, col, com)
                                             
-                  VALUES  (_Cod_Gestion, _Fec_Llamada, _Fec_Proxima, _Col, _Com);
+                  VALUES  (_Cod_Gestion, now(), now(), _Col, _Com);
         END";
         DB::unprepared($procedimiento);
 

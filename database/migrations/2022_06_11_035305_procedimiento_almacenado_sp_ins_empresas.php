@@ -15,7 +15,7 @@ return new class extends Migration
     {
         //
         $procedimiento = "CREATE PROCEDURE SP_INS_EMPRESAS (IN _Nom_empresa Varchar(255)
-        ,IN _Tel_empresa Int(11), IN _Dir_empresa Varchar(255), IN _Con_emperesa Varchar(255))
+        ,IN _Tel_empresa Int(11), IN _Dir_empresa Varchar(255), IN _Con_empresa Varchar(255))
 BEGIN
 INSERT INTO tbl_empresas (Nom_empresa, Tel_empresa, Dir_empresa, Con_empresa)
                        
