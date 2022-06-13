@@ -29,7 +29,7 @@ END";
 DB::unprepared($procedimiento);
     }
     ////PARA LLAMAR AL PROCESO ALMACENADO...
-    ////CALL SP_INS_TIPO_PAGO ('T', 'PRUEBA')
+    //!CALL SP_INS_TIPO_PAGO ('T', 'PRUEBA')
 
     /**
      * Reverse the migrations.

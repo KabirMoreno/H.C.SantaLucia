@@ -22,7 +22,6 @@ return new class extends Migration
             $table->date('Fec')->comment("Fecha de inicio");
             $table->date('Fec_expiracion')->comment("Fecha de expiracion");
             $table->float('Int_crediticio')->comment("Interes Crediticio");
-            $table->unsignedBigInteger('Cod_estado')->comment("Llave Foranea");
             $table->foreign('Cod_cartera')->references('Cod_cartera')->on('tbl_carteras') ->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('Cod_cliente')->references('Cod_cliente')->on('tbl_clientes') ->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('Cod_credito')->references('Cod_credito')->on('tbl_creditos') ->constrained()->onUpdate('cascade')->onDelete('cascade');

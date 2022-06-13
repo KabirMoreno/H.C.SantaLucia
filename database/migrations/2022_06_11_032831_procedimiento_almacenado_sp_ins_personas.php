@@ -34,7 +34,7 @@ END";
                 DB::unprepared($procedimiento);
     }
     ////PARA LLAMAR AL PROCESOS ALMACENADO.... 
-    ////CALL SP_INS_PERSONAS ("0801-2000-00000", "AMBAR", "LOPEZ", "KENNEDY", "F", 222222, 99999, "C")
+    //!CALL SP_INS_PERSONAS ("0801-2000-00000", "AMBAR", "LOPEZ", "KENNEDY", "F", 222222, 99999, "C")
 
     /**
      * Reverse the migrations.

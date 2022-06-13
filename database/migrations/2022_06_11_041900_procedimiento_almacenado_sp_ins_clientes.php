@@ -29,7 +29,7 @@ END";
 DB::unprepared($procedimiento);
     }
     ////PARA LLAMAR AL PROCESO ALMACENADO....
-    ////CALL SP_INS_CLIENTES (1, 1, "MARTIN PESCADOR")
+    //!CALL SP_INS_CLIENTES (1, 1, "MARTIN PESCADOR")
 
     /**
      * Reverse the migrations.

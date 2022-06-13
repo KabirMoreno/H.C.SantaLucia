@@ -14,23 +14,21 @@ return new class extends Migration
     public function up()
     {
         //
-        $procedimiento = "CREATE PROCEDURE SP_INS_EMPRESAS (IN _Nom_empresa Varchar(255)
-        ,IN _Tel_empresa Int(11), IN _Dir_empresa Varchar(255), IN _Con_empresa Varchar(255))
+        $procedimiento = "CREATE PROCEDURE SP_INS_CARTERAS (IN _Val_acumulado double(10,2)
+        ,IN _Sal double(10,2), _Obs Varchar(255))
 BEGIN
-INSERT INTO tbl_empresas (Nom_empresa, Tel_empresa, Dir_empresa, Con_empresa)
+INSERT INTO tbl_carteras (Val_acumulado, Sal, Obs)
                        
-VALUES  ( _Nom_empresa,
-	  _Tel_empresa,
-	  _Dir_empresa,
-	  _Con_empresa
-	  );
+VALUES  ( _Val_acumulado, 
+          _Sal,
+	  _Obs );
        
        
 END";
                 DB::unprepared($procedimiento);
     }
     ////PARA LLAMAR AL PROCEDIMIENTO ALMACENADO....
-    //!CALL SP_INS_EMPRESAS ("CARRION", 22345468, "LA GUADALUPE", "MONICA MENBREÑO")
+    //!CALL SP_INS_CARTERAS (1000, 5000, "PRUEBA")
 
     /**
      * Reverse the migrations.
@@ -40,8 +38,7 @@ END";
     public function down()
     {
         //
-        $procedimiento = "DROP PROCEDURE IF EXISTS SP_INS_EMPRESAS";
+        $procedimiento = "DROP PROCEDURE IF EXISTS SP_INS_CARTERAS";
         DB::unprepared($procedimiento);
-    
     }
 };
