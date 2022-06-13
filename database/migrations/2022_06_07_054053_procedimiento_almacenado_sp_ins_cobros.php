@@ -24,7 +24,7 @@ END";
 DB::unprepared($procedimiento);
     }
     ////PARA LLAMAR AL PROCESO ALMACENADO...
-    //!CALL SP_INS_COBROS (1, 24, 10, 50, 5)
+    ////CALL SP_INS_COBROS (1, 24, 10, 50, 5)
 
     /**
      * Reverse the migrations.
