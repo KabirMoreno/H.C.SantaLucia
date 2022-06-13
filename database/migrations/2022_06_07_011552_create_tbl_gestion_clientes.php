@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_gestion_cliente', function (Blueprint $table) {
-            $table->bigIncrements('Cod_Gestion')->comment("Código de Gestión");
-            $table->unsignedBigInteger('Cod_Cliente')->comment("Código de Cliente");
+        Schema::create('tbl_gestion_clientes', function (Blueprint $table) {
+            $table->bigIncrements('Cod_Gestion')->comment("Llave Primaria");
+            $table->unsignedBigInteger('Cod_Cliente')->comment("Llave Foranea");
             $table->date('Fec_Gestion')->comment("Fecha de Gestión");
             $table->date('Fec_Expirado')->comment("Fecha de Expiración");
             $table->date('Fec_Ultimo_Pago')->comment("Fecha del Último Pago");
@@ -25,10 +25,10 @@ return new class extends Migration
             $table->unsignedBigInteger('Cod_Credito')->comment("Código de Crédito");
             $table->string('Col_Uno', 45)->comment("Colabodor 1");
             $table->string('Col_Dos', 45)->comment("Colaborador 2");
-            $table->foreign('Cod_Cliente')->references('Cod_Cliente')->on('tbl_cliente')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('Cod_Cliente')->references('Cod_Cliente')->on('tbl_clientes')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('Cod_Credito')->references('Cod_Credito')->on('tbl_creditos')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
-            $table->softDeletes(); ////ESTE LO AGREGUÉ PARA QUE SE MIRE LA FECHA DE ELIMINACIÓN
+            $table->softDeletes(); ////ESTE LO AGREGUÉ PARA QUE SE MIRE LA FECHA DE ELIMINACIÓNE
         });
     }
 
@@ -39,6 +39,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_gestion_cliente');
+        Schema::dropIfExists('tbl_gestion_clientes');
     }
 };

@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_estado', function (Blueprint $table) {
-            $table->bigIncrements('COD_ESTADO');
-            $table->enum("TIPO_ESTADO",["A","M","X"]);
-            $table->timestamps();
-        });
+        //
+        $procedimiento = "CREATE PROCEDURE SP_MOS_CREDITOS (IN _Cod_credito bigint(20))
+        BEGIN
+        
+          SELECT * FROM tbl_creditos;     
+        
+        END";
+        DB::unprepared($procedimiento);
     }
 
     /**
@@ -27,6 +30,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_estado');
+        //
+        $procedimiento = "DROP PROCEDURE IF EXISTS SP_MOS_CREDITOS";
+        DB::unprepared($procedimiento);
     }
 };

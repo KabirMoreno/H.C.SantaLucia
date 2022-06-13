@@ -13,15 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_personas', function (Blueprint $table) {
-            $table->bigIncrements('COD_PERSONA');
-            $table->string('IDENTIDAD');
-            $table->string('NOMBRE');
-            $table->string('APELLIDO');
-            $table->string('DIRECCION');
-            $table->integer('TELEFONO');
-            $table->integer('CELULAR');
-            $table->datetime('FECHA_REGISTRO');
+        Schema::create('tbl_creditos', function (Blueprint $table) {
+            $table->bigIncrements('Cod_credito')->comment("Llave Pirmaria");
+            $table->enum("Tip_credito",["C","M","L"])->comment("C=Corto, M=Medio, L=Largo plazo");
+            $table->integer('Dia_credito')->comment("Dias del credito");
+            $table->string('Descr')->comment("Descripcion del credito");
             $table->timestamps();
             $table->softDeletes(); ////ESTE LO AGREGUE PARA QUE SE MIRE LA FECHA DE ELIMINACION
         });
@@ -34,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_personas');
+        Schema::dropIfExists('tbl_creditos');
     }
 };

@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('password_resets', function (Blueprint $table) {
-            $table->string('email')->index();
-            $table->string('token');
-            $table->timestamp('created_at')->nullable();
-        });
+        //
+        $procedimiento = "CREATE PROCEDURE SP_SEL_COBROS(IN _Cod_Cobro bigint(20))
+        BEGIN
+            SELECT * 
+            FROM tbl_cobros
+            WHERE Cod_Cobro = _Cod_Cobro;
+        END";
+        DB::unprepared($procedimiento);
     }
 
     /**
@@ -27,6 +30,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('password_resets');
+        //
+        $procedimiento = "DROP PROCEDURE IF EXISTS SP_SEL_COBROS";
+        DB::unprepared($procedimiento);
     }
 };

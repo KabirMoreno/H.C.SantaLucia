@@ -14,14 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tbl_cobros', function (Blueprint $table) {
-            $table->bigIncrements('Cod_Cobro')->comment("Código de Cobro");
-            $table->unsignedBigInteger('Cod_Gestion')->comment("Código de Gestión");
+            $table->bigIncrements('Cod_Cobro')->comment("Llave Primaria");
+            $table->unsignedBigInteger('Cod_Gestion')->comment("Llave Foranea");
             $table->date('Fec_Expiracion')->comment("Fecha de Expiración");
-            $table->float('Interes', 10,2)->comment("Interes por cuentas por cobrar");
-            $table->float('Subtotal', 10,2)->comment("Subtotal de la cuenta");
-            $table->float('Total', 10,2)->comment("Total de cuenta por pagar");
-            $table->float('Pagado', 10,2)->comment("Pagado");
-            $table->foreign('Cod_Gestion')->references('Cod_Gestion')->on('tbl_gestion_cliente')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->float('Inte', 10,2)->comment("Interes por cuentas por cobrar");
+            $table->float('Sub', 10,2)->comment("Subtotal de la cuenta");
+            $table->float('Tot', 10,2)->comment("Total de cuenta por pagar");
+            $table->float('Pag', 10,2)->comment("Pagado");
+            $table->foreign('Cod_Gestion')->references('Cod_Gestion')->on('tbl_gestion_clientes')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes(); ////ESTE LO AGREGUE PARA QUE SE MIRE LA FECHA DE ELIMINACION
         });

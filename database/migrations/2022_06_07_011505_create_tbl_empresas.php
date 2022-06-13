@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_cliente', function (Blueprint $table) {
-            $table->bigIncrements('Cod_Cliente');
-            $table->unsignedBigInteger('COD_EMPRESA');
-            $table->unsignedBigInteger('COD_PERSONA');
-            $table->string('IDENTIDAD');
-            $table->foreign('COD_EMPRESA')->references('COD_EMPRESA')->on('tbl_empresa');
-            $table->foreign('COD_PERSONA')->references('COD_PERSONA')->on('tbl_personas');
+        Schema::create('tbl_empresas', function (Blueprint $table) {
+            $table->bigIncrements('Cod_empresa')->comment("Llave  Primaria");
+            $table->string('Nom_empresa')->comment("Nombre de la empresa");
+            $table->integer('Tel_empresa')->comment("Telefono de la empresa");
+            $table->string('Dir_empresa')->comment("Direccion Empresa");
+            $table->string('Con_empresa')->comment("..");
             $table->timestamps();
             $table->softDeletes(); ////ESTE LO AGREGUE PARA QUE SE MIRE LA FECHA DE ELIMINACION
         });
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_cliente');
+        Schema::dropIfExists('tbl_empresas');
     }
 };

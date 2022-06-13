@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_tipo_reporte', function (Blueprint $table) {
-            $table->bigIncrements('COD_TIPO_REPORTE');
-            $table->string('DESCRIPCION');
-            $table->string('ESTADO');
+        Schema::create('tbl_tipo_reportes', function (Blueprint $table) {
+            $table->bigIncrements('Cod_tipo_reporte')->comment("Llave Primaria");
+            $table->string('Descr')->comment("Descripcion");
+            $table->string('Est')->comment("Estado");
             $table->timestamps();
-            
         });
     }
 
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_tipo_reporte');
+        Schema::dropIfExists('tbl_tipo_reportes');
     }
 };
