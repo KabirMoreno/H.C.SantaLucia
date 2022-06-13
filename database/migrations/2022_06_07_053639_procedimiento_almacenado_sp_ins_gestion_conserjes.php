@@ -24,7 +24,7 @@ return new class extends Migration
 
     }
     ////PARA LLAMAR AL PROCESO ALMACENADO...
-    ////CALL SP_INS_CONSERJES(1, "TODO BIEN", "AQUI IMAGEN")
+    //!CALL SP_INS_CONSERJES(1, "TODO BIEN", "AQUI IMAGEN")
 
     /**
      * Reverse the migrations.

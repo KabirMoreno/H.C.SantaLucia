@@ -31,7 +31,7 @@ END";
 DB::unprepared($procedimiento);
     }
     ////PARA LLAMAR AL PROCESO ALMACENADO....
-    ////CALL SP_INS_PAGO (1, 10, 10, 10)
+    //!CALL SP_INS_PAGO (1, 10, 10, 10)
 
     /**
      * Reverse the migrations.

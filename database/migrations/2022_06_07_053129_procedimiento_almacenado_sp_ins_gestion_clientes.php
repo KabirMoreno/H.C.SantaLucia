@@ -28,7 +28,7 @@ END";
 DB::unprepared($procedimiento);
     }
     ////PARA LLAMAR AL PROCESO ALMACENADO...
-    ////CALL SP_INS_GESTION_CLIENTE (2, 'cinco','diez' , 20000, 2, 'MORENO', 'LICONA')
+    //!CALL SP_INS_GESTION_CLIENTE (2, 'cinco','diez' , 20000, 2, 'MORENO', 'LICONA')
 
     /**
      * Reverse the migrations.

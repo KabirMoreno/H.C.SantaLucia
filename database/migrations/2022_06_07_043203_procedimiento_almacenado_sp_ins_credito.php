@@ -33,7 +33,7 @@ DB::unprepared($procedimiento);
 
     }
     ////PARA LLAMAR AL PROCESO ALMACENADO..
-    ////CALL SP_INS_CREDITO ('C',11,'PRUEBA')
+    //!CALL SP_INS_CREDITO ('C',11,'PRUEBA')
 
     /**
      * Reverse the migrations.

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->bigIncrements('Cod_usuario')->comment("LLave primaria de tabla de usuario");
             $table->string('Nom_Usuario')->comment("Nombre del Usuario");
             $table->string('Correo_Electronico')->unique()->comment("Correo electronico del usuario");
-            $table->string('Contrasena')->comment("contraseña del usuario");
+            $table->string('Contraseña')->comment("contraseña del usuario");
             $table->enum('Tip_Estado',["A","B","N"])->comment("A = Activo , B = Bloquiado , N = Nuevo");
             $table->date('Fec_Cambio')->nullable()->comment("Fecha de cambio de contraseña"); 
             $table->unsignedBigInteger('Cod_Persona')->comment("LLave Foranea para la tabla de personas"); 
