@@ -38,7 +38,7 @@ DB::unprepared($procedimiento);
     public function down()
     {
         //
-        $procedimiento = "DROP PROCEDURE IF EXISTS SP_UPD_GESTION_CLIENTE";
+        $procedimiento = "DROP PROCEDURE IF EXISTS SP_UPD_LLAMADAS";
         DB::unprepared($procedimiento);
     }
 };

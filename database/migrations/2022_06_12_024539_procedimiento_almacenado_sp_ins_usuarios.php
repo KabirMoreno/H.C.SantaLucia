@@ -16,28 +16,32 @@ return new class extends Migration
         //
         $procedimiento = "CREATE PROCEDURE  SP_INS_USUARIOS (IN _Nom_Usuario bigint (20), IN _Correo_Electronico Varchar(255)
         ,IN _Contraseña Varchar(255)
-        ,IN _Cod_Estado_Usuario Bigint (20)
-	,IN _Cod_Role Bigint(20)
-	,IN _Cod_Personas Bigint(20))
+        ,IN _Tip_Estado Enum('A','B','N') 
+	,IN _Cod_Persona Bigint(20)
+	,IN _Cod_Rol Bigint(20))
 BEGIN
 INSERT INTO tbl_Usuarios  (Nom_Usuario, 
-                         Correo_Electronico ,
+                         Correo_Electronico,
                          Contraseña,
-			             Cod_Estado_Usuario, 
-			            Cod_Rol,
-			            Cod_Persona )
+			 Tip_Estado, 
+			 Fec_Cambio,
+			 Cod_Persona,
+			 Cod_Rol )
 
                        
 VALUES  (_Nom_Usuario, 
-                         _Correo_Electronico ,
+                         _Correo_Electronico,
                          _Contraseña,
-			             _Cod_Estado_Usuario, 
-			             _Cod_Role,
-			            _Cod_Personas );
+			 _Tip_Estado,
+   			 now(),
+			 _Cod_Persona,
+			 _Cod_Rol );
        
 END";
                 DB::unprepared($procedimiento);
     }
+////PARA LLAMAR AL PROCEDIMIENTO ALMACENADO...
+//!CALL SP_INS_USUARIOS ('Marta', 'Marta@gmail.com' ,'laotra','A',1,1 )
 
     /**
      * Reverse the migrations.

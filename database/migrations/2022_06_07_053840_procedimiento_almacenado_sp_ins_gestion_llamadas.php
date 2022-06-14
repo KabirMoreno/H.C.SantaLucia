@@ -35,7 +35,7 @@ return new class extends Migration
     public function down()
     {
         //
-        $procedimiento ="DROP PROCEDURE IF EXISTS SP_INS_CONSERJE";
+        $procedimiento ="DROP PROCEDURE IF EXISTS SP_INS_GESTION_LLAMADAS";
         DB::unprepared($procedimiento);
     }
 };
