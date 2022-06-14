@@ -20,11 +20,11 @@ return new class extends Migration
             $table->string('Contraseña')->comment("contraseña del usuario");
             $table->enum('Tip_Estado',["A","B","N"])->comment("A = Activo , B = Bloquiado , N = Nuevo");
             $table->date('Fec_Cambio')->nullable()->comment("Fecha de cambio de contraseña"); 
-            $table->unsignedBigInteger('Cod_Persona')->comment("LLave Foranea para la tabla de personas"); 
-            $table->foreign('Cod_Persona')->references('Cod_Persona')->on('TBL_PERSONAS');
+            $table->unsignedBigInteger('Cod_Persona')->comment("LLave Foranea para la tabla de personas");
             //$table->unsignedBigInteger('Cod_Estado_Usuario')->comment("Estado del usuario")->comment("LLave Foranea con el estado del usuario"); 
             // $table->foreign('Cod_Estado_Usuario')->references('Cod_Estado')->on('TBL_ESTADO_USUARIOS');
-            $table->unsignedBigInteger('Cod_Rol')->comment("LLave Foranea de los roles del usuario"); 
+            $table->unsignedBigInteger('Cod_Rol')->comment("LLave Foranea de los roles del usuario")->constrained()->onUpdate('cascade')->onDelete('cascade'); 
+            $table->foreign('Cod_Persona')->references('Cod_Persona')->on('TBL_PERSONAS')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('Cod_Rol')->references('Cod_Rol')->on('tbl_roles');
             //$table->timestamp('email_verified_at')->nullable();
             //$table->rememberToken();
