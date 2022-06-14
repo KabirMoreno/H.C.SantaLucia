@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreign('COD_GESTION')->references('COD_GESTION')->on('tbl_gestion_cliente');
             $table->timestamps();
             $table->softDeletes(); ////ESTE LO AGREGUE PARA QUE SE MIRE LA FECHA DE ELIMINACION
+            // te la comes
         });
     }
 

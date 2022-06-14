@@ -15,12 +15,14 @@ return new class extends Migration
     {
         Schema::create('tbl_personas', function (Blueprint $table) {
             $table->bigIncrements('COD_PER');
-            $table->string('DNI');
+            $table->integer('DNI');
             $table->string('NOM');
             $table->string('APE');
             $table->string('DIR');
             $table->integer('TEL');
             $table->integer('CEL');
+            $table->string('COR');//// agregar
+            $table->enum('SEX',["M","F","O"]);//// ESTE ES EL TIPO DE SEXO gregar
             $table->datetime('FEC_REG');
             $table->timestamps();
             $table->softDeletes(); ////ESTE LO AGREGUE PARA QUE SE MIRE LA FECHA DE ELIMINACION
