@@ -15,7 +15,7 @@ return new class extends Migration
     {
         //
         $procedimiento = "CREATE PROCEDURE SP_UPD_GESTION_CLIENTE (IN _Cod_Gestion bigint (20), IN _Cod_Cliente bigint (20),
-        IN _Num_Cuotas int (11), IN _Cuo_Pendiente_Cl varchar (255),
+        IN _Num_Cuotas varchar(255), IN _Cuo_Pendiente_Cl varchar (255),
         IN _Cuo_Pendientes_Lps int (11), IN _Cod_Credito bigint (20), IN _Col_Uno varchar (45),
         IN _Col_Dos varchar (45))
 BEGIN
@@ -28,7 +28,7 @@ END";
 DB::unprepared($procedimiento);
     }
     ////PARA LLAMAR AL PROCESO ALMACENADO...
-    ////CALL SP_UPD_GESTION_CLIENTE (1, 1, "Num", "Cu", 9999, 1, "ELLA", "EL");
+    //!CALL SP_UPD_GESTION_CLIENTE (1, 1, "Num", "Cu", 9999, 1, "ELLA", "EL");
 
     /**
      * Reverse the migrations.

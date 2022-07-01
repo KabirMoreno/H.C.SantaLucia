@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('TBL_USUARIOS', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('Cod_usuario')->comment("LLave primaria de tabla de usuario");
             $table->string('Nom_Usuario')->comment("Nombre del Usuario");
             $table->string('Correo_Electronico')->unique()->comment("Correo electronico del usuario");
@@ -39,6 +39,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('TBL_USUARIOS');
+        Schema::dropIfExists('users');
     }
 };

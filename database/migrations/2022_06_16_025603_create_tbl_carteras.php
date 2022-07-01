@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('Obs')->comment("Observaciones");
             $table->enum("Tip_estado",["A","M","X"])->comment("A=Activo, M=Mora, X=Expirado");
             $table->timestamps();
-            $table->softDeletes();// //ESTE LO AGREGUE PARA QUE SE MIRE LA FECHA DE ELIMINACION
         });
     }
 

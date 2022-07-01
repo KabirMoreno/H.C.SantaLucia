@@ -14,13 +14,13 @@ return new class extends Migration
     public function up()
     {
         //
-        $procedimiento = "CREATE PROCEDURE  SP_INS_USUARIOS (IN _Nom_Usuario bigint (20), IN _Correo_Electronico Varchar(255)
+        $procedimiento = "CREATE PROCEDURE  SP_INS_USUARIOS (IN _Nom_Usuario varchar(255), IN _Correo_Electronico Varchar(255)
         ,IN _Contraseña Varchar(255)
         ,IN _Tip_Estado Enum('A','B','N') 
 	,IN _Cod_Persona Bigint(20)
 	,IN _Cod_Rol Bigint(20))
 BEGIN
-INSERT INTO tbl_Usuarios  (Nom_Usuario, 
+INSERT INTO users  (Nom_Usuario, 
                          Correo_Electronico,
                          Contraseña,
 			 Tip_Estado, 

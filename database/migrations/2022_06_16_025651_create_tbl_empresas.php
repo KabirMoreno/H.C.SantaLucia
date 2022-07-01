@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('Dir_empresa')->comment("Direccion Empresa");
             $table->string('Con_empresa')->comment("Contacto de la empresa");
             $table->timestamps();
-            $table->softDeletes(); ////ESTE LO AGREGUE PARA QUE SE MIRE LA FECHA DE ELIMINACION
         });
     }
 

@@ -28,7 +28,7 @@ DB::unprepared($procedimiento);
 
     }
     ////PARA LLAMAR AL PROCESO ALMACENADO...
-    ////CALL SP_UPD_LLAMADAS (1,2, "angela canales", "prueba");
+    //!CALL SP_UPD_LLAMADAS (1,2, "angela canales", "prueba");
 
     /**
      * Reverse the migrations.

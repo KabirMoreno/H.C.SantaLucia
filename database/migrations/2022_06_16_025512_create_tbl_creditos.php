@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_tipo_pagos', function (Blueprint $table) {
-            $table->bigIncrements('Cod_tipo_pago')->comment("Llave Primaria");
-            $table->enum("Tip_credito",["T","CH","E"])->comment("T=Transaccion, CH=Cheque, E=Efectivo");
+        Schema::create('tbl_creditos', function (Blueprint $table) {
+            $table->bigIncrements('Cod_credito')->comment("Llave Pirmaria");
+            $table->enum("Tip_credito",["C","M","L"])->comment("C=Corto, M=Medio, L=Largo plazo");
+            $table->integer('Dia_credito')->comment("Dias del credito");
             $table->string('Descr')->comment("Descripcion del credito");
             $table->timestamps();
-            $table->softDeletes(); ////ESTE LO AGREGUE PARA QUE SE MIRE LA FECHA DE ELIMINACION
         });
     }
 
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_tipo_pagos');
+        Schema::dropIfExists('tbl_creditos');
     }
 };

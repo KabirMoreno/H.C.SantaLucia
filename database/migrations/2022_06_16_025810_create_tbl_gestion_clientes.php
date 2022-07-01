@@ -28,7 +28,6 @@ return new class extends Migration
             $table->foreign('Cod_Cliente')->references('Cod_Cliente')->on('tbl_clientes')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('Cod_Credito')->references('Cod_Credito')->on('tbl_creditos')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
-            $table->softDeletes(); ////ESTE LO AGREGUÉ PARA QUE SE MIRE LA FECHA DE ELIMINACIÓNE
         });
     }
 

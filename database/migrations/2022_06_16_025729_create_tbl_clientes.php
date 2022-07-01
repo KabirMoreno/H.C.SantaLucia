@@ -21,7 +21,6 @@ return new class extends Migration
             $table->foreign('Cod_empresa')->references('Cod_empresa')->on('tbl_empresas')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('Cod_persona')->references('Cod_persona')->on('tbl_personas')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
-            $table->softDeletes(); ////ESTE LO AGREGUE PARA QUE SE MIRE LA FECHA DE ELIMINACION
         });
     }
 

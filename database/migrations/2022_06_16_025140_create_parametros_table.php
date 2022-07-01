@@ -13,8 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_reportes_guardados', function (Blueprint $table) {
-            $table->bigIncrements('Cod_rep_guardado')->comment("Llave Pirmaria");
+        Schema::create('parametros', function (Blueprint $table) {
+            $table->id();
+            $table->string('parametro',30); //admin_intentos
+            $table->string('valor',30); //admin_vigencia
+            $table->unsignedBigInteger('Cod_Usuario');
+            $table->foreign('Cod_Usuario')->references('cod_usuario')->on('users');//llave foranea 
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_reportes_guardados');
+        Schema::dropIfExists('parametros');
     }
 };

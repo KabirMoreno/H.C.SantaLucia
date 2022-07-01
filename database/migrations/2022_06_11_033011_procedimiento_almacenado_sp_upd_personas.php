@@ -15,7 +15,7 @@ return new class extends Migration
     {
         //
         $procedimiento = "CREATE PROCEDURE SP_UPD_PERSONAS (IN _Cod_persona Bigint(20), IN _DNI Varchar(255)
-        ,IN _Nom Varchar(255), IN _Ape Varchar(255), _Dir Varchar(255), IN _Tip_sexo Enum('M','F'), IN _Tel Int(11), IN _Cel Int(11),  IN _Tip_registro Enum('C','E'))
+        ,IN _Nom Varchar(255), IN _Ape Varchar(255), _Dir Varchar(255), IN _Tip_sexo Enum('M','F'), IN _Tip_registro Enum('C','E'))
 BEGIN
 UPDATE tbl_personas 
 Set 
@@ -24,8 +24,6 @@ Nom = _Nom,
 Ape = _Ape,
 Dir = _Dir,
 Tip_sexo = _Tip_sexo,
-Tel = _Tel,
-Cel = _Cel,
 Tip_registro = _Tip_registro,
 Fec_registro = now()
 

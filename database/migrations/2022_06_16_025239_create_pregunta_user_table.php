@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePreguntaUserTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreatePreguntaUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_pregunta_usuario', function (Blueprint $table) {
+        Schema::create('pregunta_user', function (Blueprint $table) {
             //$table->id();
             $table->unsignedBigInteger('cod_pregunta');
             $table->unsignedBigInteger('Cod_Usuario');
-            $table->foreign('cod_pregunta')->references('Cod_Pregunta')->on('tbl_preguntas')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('Cod_Usuario')->references('Cod_Usuario')->on('tbl_usuarios')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('cod_pregunta')->references('Cod_Pregunta')->on('preguntas')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('Cod_Usuario')->references('Cod_Usuario')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->string('respuesta',100);
             $table->timestamps();
         });
@@ -31,6 +31,6 @@ class CreatePreguntaUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_pregunta_usuario');
+        Schema::dropIfExists('pregunta_user');
     }
-}
+};

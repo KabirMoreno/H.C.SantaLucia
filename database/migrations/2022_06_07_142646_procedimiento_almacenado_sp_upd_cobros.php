@@ -30,7 +30,7 @@ END";
 DB::unprepared($procedimiento);
     }
     ////PARA LLAMAR AL PROCESO ALMACENADO...
-    ////CALL SP_UPD_COBROS (1, 1, 1, 1, 1, 1,1)
+    //!CALL SP_UPD_COBROS (1, 1, 1, 1, 1, 1,1)
 
     /**
      * Reverse the migrations.
